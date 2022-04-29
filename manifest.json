@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "PWA Install Block",
+  "short_name": "PWA Install Block",
+  "description": "PWA Install Block",
+  "version": "0.0.2",  
+  
+  "content_scripts": [
+		{ 
+			"run_at":"document_start",
+			"matches": [
+				"https://*/*", "http://*/*"
+			],
+			"js": [
+				"contentscript.js"
+			]
+		}
+	],
+  "icons": {
+    "32": "assets/PWA Block 32x32.png",
+    "64": "assets/PWA Block 64x64.png",
+    "128": "assets/PWA Block 128x128.png"
+  }
+}
