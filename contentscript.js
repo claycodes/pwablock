@@ -11,10 +11,21 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-
+var esc =[]
+chrome.storage.managed.get('escape', function (data) {
+    if(typeof data['escape'] == 'string' && data['escape'].includes('[') && data['escape'].includes(']')){
+       esc = JSON.parse(data['escape'])
+    }else if(Array.isArray(data['escape'])){
+        esc = data['escape']
+    }
+    else{
+        esc.push(data['escape'])
+    }
+})
 const observer = new MutationObserver(function () {
     const items = document.querySelectorAll('link')
-    if (items)
+    const url = window.location.href
+    if (items && !esc.some(e=>url.includes(e)))
         items.forEach(item => {
             if (item.getAttribute('rel') == 'manifest') {
                 item.remove()
