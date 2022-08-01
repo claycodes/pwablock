@@ -12,6 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 var esc =[]
+
+try{
 chrome.storage.managed.get('escape', function (data) {
     if(typeof data['escape'] == 'string' && data['escape'].includes('[') && data['escape'].includes(']')){
        esc = JSON.parse(data['escape'])
@@ -22,6 +24,10 @@ chrome.storage.managed.get('escape', function (data) {
         esc.push(data['escape'])
     }
 })
+}catch(e){
+    console.log(e)
+}
+
 const observer = new MutationObserver(function () {
     const items = document.querySelectorAll('link')
     const url = window.location.href

@@ -16,6 +16,9 @@
 			]
 		}
 	],
+  "storage": {
+    "managed_schema": "schema.json"
+  },
   "icons": {
     "32": "assets/PWA Block 32x32.png",
     "64": "assets/PWA Block 64x64.png",

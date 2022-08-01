@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "properties": {
+      "escape": {
+        "title": "Escape URLS",
+        "description": "Urls to allow manifests to load on.",
+        "type": "array",
+        "items":{
+            "type":"string"
+          }
+      }
+    }
+}
